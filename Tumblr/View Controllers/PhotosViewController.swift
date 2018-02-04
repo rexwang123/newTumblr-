@@ -17,6 +17,7 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     
     var posts: [[String: Any]] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
