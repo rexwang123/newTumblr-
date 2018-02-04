@@ -16,12 +16,6 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
     @IBOutlet weak var tableView: UITableView!
     
     
-    @IBOutlet weak var photoCell: PhotoCell!
-    
-    
-    
-    
-    
     var posts: [[String: Any]] = []
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +71,7 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
             let url = URL(string: urlString)
             // TODO: Get the photo url
             
-            cell.userImageView.af_setImage(withURL: url!)
+            cell.photoImageView.af_setImage(withURL: url!)
             self.tableView.reloadData()
         }
         
