@@ -51,7 +51,7 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -71,7 +71,7 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
             let url = URL(string: urlString)
             // TODO: Get the photo url
             
-            cell.photoImageView.af_setImage(withURL: url!)
+            cell.userImageView.af_setImage(withURL: url!)
             self.tableView.reloadData()
         }
         
