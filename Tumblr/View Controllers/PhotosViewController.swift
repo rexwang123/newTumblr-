@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
@@ -57,9 +58,22 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
         cell.textLabel?.text = "This is row \(indexPath.row)"
-        
+       
+        let post = posts[indexPath.row]
+       
+        if let photos = post["photos"] as? [[String: Any]] {
+            // 1.
+            let photo = photos[0]
+            // 2.
+            let originalSize = photo["original_size"] as! [String: Any]
+            // 3.
+            let urlString = originalSize["url"] as! String
+            // 4.
+            let url = URL(string: urlString)
+            // TODO: Get the photo url
+        }
         return cell
     }
     
