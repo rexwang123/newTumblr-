@@ -23,7 +23,7 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         tableView.delegate = self
         tableView.dataSource = self
-        
+        tableView.rowHeight = 200
         
         // Network request snippet
         let url = URL(string: "https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/posts/photo?api_key=Q6vHoaVm5L1u2ZAW1fqv3Jw48gFzYVg9P0vH0VHl3GVy6quoGV")!
@@ -42,6 +42,9 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
                 // Store the returned array of dictionaries in our posts property
                 self.posts = responseDictionary["posts"] as! [[String: Any]]
                 // TODO: Reload the table view
+                DispatchQueue.main.async {
+                    self.tableView.reloadData() // this will refresh the tableView and trigger the delegate methods to be called
+                }
             }
         }
         task.resume()
@@ -72,7 +75,7 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
             // TODO: Get the photo url
             
             cell.userImageView.af_setImage(withURL: url!)
-            self.tableView.reloadData()
+            
         }
         
        
