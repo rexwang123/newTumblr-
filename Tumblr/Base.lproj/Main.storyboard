@@ -30,14 +30,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ap2-lf-6D0" userLabel="photoImageView">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ap2-lf-6D0" userLabel="userImageView">
                                                     <rect key="frame" x="0.0" y="-43" width="240" height="128"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="userImageView" destination="Ap2-lf-6D0" id="JCB-nO-knM"/>
+                                            <outlet property="userImageView" destination="Ap2-lf-6D0" id="l9H-27-ouf"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
