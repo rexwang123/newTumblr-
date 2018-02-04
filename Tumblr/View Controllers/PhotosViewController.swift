@@ -11,9 +11,12 @@ import UIKit
 class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
    
+    
     @IBOutlet weak var tableView: UITableView!
     
-   
+    @IBOutlet weak var PhotoCell: PhotoCell!
+    
+    
     
     var posts: [[String: Any]] = []
     override func viewDidLoad() {
@@ -23,17 +26,6 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
         tableView.delegate = self
         tableView.dataSource = self
         
-        
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 5
-        }
-        
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = UITableViewCell()
-            cell.textLabel?.text = "This is row \(indexPath.row)"
-            
-            return cell
-        }
         
         // Network request snippet
         let url = URL(string: "https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/posts/photo?api_key=Q6vHoaVm5L1u2ZAW1fqv3Jw48gFzYVg9P0vH0VHl3GVy6quoGV")!
@@ -60,6 +52,17 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
         // Do any additional setup after loading the view.
     }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = "This is row \(indexPath.row)"
+        
+        return cell
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
@@ -67,7 +70,8 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+  
     /*
     // MARK: - Navigation
 
