@@ -13,6 +13,7 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
 
    
     
+    
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -63,7 +64,7 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
         cell.textLabel?.text = "This is row \(indexPath.row)"
        
         let post = posts[indexPath.row]
-       
+        
         if let photos = post["photos"] as? [[String: Any]] {
             // 1.
             let photo = photos[0]

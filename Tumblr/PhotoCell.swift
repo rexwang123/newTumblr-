@@ -10,8 +10,15 @@ import UIKit
 
 class PhotoCell: UITableViewCell {
 
-    @IBOutlet weak var userImageView: UIImageView!
-   
+    @IBOutlet weak var userImageView: UIImageView!{
+    didSet {
+        self.userImageView.contentMode = .scaleAspectFit
+       // self.userImageView.contentMode = .scaleAspectFill
+        
+        userImageView.frame.size = CGSize(width: 200, height: 200)
+        
+    }
+}
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
