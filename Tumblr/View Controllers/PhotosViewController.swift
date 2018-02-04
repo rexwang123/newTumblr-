@@ -15,7 +15,10 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var PhotoCell: PhotoCell!
+    
+    @IBOutlet weak var photoCell: PhotoCell!
+    
+    
     
     
     
@@ -73,7 +76,13 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
             // 4.
             let url = URL(string: urlString)
             // TODO: Get the photo url
+            
+            cell.userImageView.af_setImage(withURL: url!)
+            self.tableView.reloadData()
         }
+        
+       
+        
         return cell
     }
     
