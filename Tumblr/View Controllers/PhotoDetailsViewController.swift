@@ -7,14 +7,19 @@
 //
 
 import UIKit
-
+import AlamofireImage
 class PhotoDetailsViewController: UIViewController {
 
-    var imageURL: String = ""
+    var imageURL = URL(string: "")
+
+    @IBOutlet weak var posterPhoto: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        posterPhoto.af_setImage(withURL: imageURL!)
+        print(imageURL)
+        
         // Do any additional setup after loading the view.
     }
 

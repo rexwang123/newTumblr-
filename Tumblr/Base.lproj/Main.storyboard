@@ -41,7 +41,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="userImageView" destination="Qv4-UG-Cum" id="jxY-Mj-ErF"/>
-                                            <segue destination="zqK-zW-qev" kind="show" id="E1E-o6-QuH"/>
+                                            <segue destination="EKE-Jr-IGe" kind="show" id="rWe-co-UNd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -68,7 +68,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QJc-1t-4ZN">
-                                <rect key="frame" x="49" y="96" width="240" height="128"/>
+                                <rect key="frame" x="11" y="96" width="383" height="395"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -76,28 +76,13 @@
                         <viewLayoutGuide key="safeArea" id="TdW-u4-nCv"/>
                     </view>
                     <navigationItem key="navigationItem" id="w3s-yg-usL"/>
+                    <connections>
+                        <outlet property="posterPhoto" destination="QJc-1t-4ZN" id="6IA-H5-Jhi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5IO-J0-AIZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="515.94202898550725" y="-575.54347826086962"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Ugo-Cc-nS6">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zqK-zW-qev" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YZ8-7L-1K6">
-                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="EKE-Jr-IGe" kind="relationship" relationship="rootViewController" id="6zd-ja-OnC"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Y9T-kn-qet" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-179.71014492753625" y="-574.72826086956525"/>
+            <point key="canvasLocation" x="-110.14492753623189" y="-576.35869565217399"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zT1-1i-Vqf">
