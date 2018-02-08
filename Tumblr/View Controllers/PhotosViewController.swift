@@ -61,7 +61,7 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
-        cell.textLabel?.text = "This is row \(indexPath.row)"
+        
        
         let post = posts[indexPath.row]
         
