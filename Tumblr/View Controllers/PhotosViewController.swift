@@ -54,15 +54,13 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
         // Do any additional setup after loading the view.
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
-    }
+   
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
         
-       
-        let post = posts[indexPath.row]
+        let post = posts[indexPath.section]
+        
         
         if let photos = post["photos"] as? [[String: Any]] {
             // 1.
@@ -82,9 +80,19 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
         return cell
     }
     
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return posts.count
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
@@ -92,9 +100,29 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
         // Dispose of any resources that can be recreated.
     }
     
-    
   
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+        headerView.backgroundColor = UIColor(white: 1, alpha: 0.9)
+        
+        let profileView = UIImageView(frame: CGRect(x: 10, y: 10, width: 30, height: 30))
+        profileView.clipsToBounds = true
+        profileView.layer.cornerRadius = 15;
+        profileView.layer.borderColor = UIColor(white: 0.7, alpha: 0.8).cgColor
+        profileView.layer.borderWidth = 1;
+        
+        // Set the avatar
+        profileView.af_setImage(withURL: URL(string: "https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/avatar")!)
+        headerView.addSubview(profileView)
     
+        
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30.0
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -104,7 +132,7 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
              let photosDetailViewsController = segue.destination as! PhotoDetailsViewController
              //let poster = posts[indexPath.row]
              //let posterURL = poster["post_url"]
-            let post = posts[indexPath.row]
+            let post = posts[indexPath.section]
             if let photos = post["photos"] as? [[String: Any]] {
                 // 1.
                 let photo = photos[0]
