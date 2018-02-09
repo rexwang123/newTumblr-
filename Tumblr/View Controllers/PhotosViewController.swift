@@ -115,7 +115,16 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
         // Set the avatar
         profileView.af_setImage(withURL: URL(string: "https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/avatar")!)
         headerView.addSubview(profileView)
-    
+        
+        // Add a UILabel for the date here
+        let dateLable = UILabel(frame: CGRect(x: 50, y: 5, width: 400, height: 30))
+        let post = posts[section]
+        let date = post["date"] as! String
+        dateLable.text = date
+        headerView.addSubview(dateLable)
+        
+        // Use the section number to get the right URL
+        // let label = ...
         
         return headerView
     }
