@@ -10,8 +10,8 @@ import UIKit
 import AlamofireImage
 
 class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
-
-   
+    
+    
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -49,12 +49,12 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
             }
         }
         task.resume()
-
+        
         
         // Do any additional setup after loading the view.
     }
-
-   
+    
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
@@ -100,7 +100,7 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
         // Dispose of any resources that can be recreated.
     }
     
-  
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
@@ -133,14 +133,14 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
         return 30.0
     }
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cell = sender as! UITableViewCell
         if let indexPath = tableView.indexPath(for: cell){
-             let photosDetailViewsController = segue.destination as! PhotoDetailsViewController
-             //let poster = posts[indexPath.row]
-             //let posterURL = poster["post_url"]
+            let photosDetailViewsController = segue.destination as! PhotoDetailsViewController
+            //let poster = posts[indexPath.row]
+            //let posterURL = poster["post_url"]
             let post = posts[indexPath.section]
             if let photos = post["photos"] as? [[String: Any]] {
                 // 1.
@@ -159,5 +159,6 @@ class PhotosViewController: UIViewController,UITableViewDataSource,UITableViewDe
         // Pass the selected object to the new view controller.
     }
     
-
+    
 }
+
